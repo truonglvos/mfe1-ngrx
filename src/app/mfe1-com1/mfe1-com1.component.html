@@ -1,0 +1,7 @@
+<p>mfe1-com1 works!</p>
+<h3>mfe1 header</h3>
+<ng-container *ngIf="{ a: vm$ | async } as vm">
+  <span>mfe1 isLogin: {{ vm.a }}</span>
+  <br />
+  <button (click)="changeLogin(vm.a)">mfe1 Click</button>
+</ng-container>
