@@ -1,6 +1,7 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const packageJson = require("./package.json");
 const dependencies = packageJson.dependencies;
+require("dotenv").config({ path: "./.env" });
 
 module.exports = {
   output: {
@@ -29,7 +30,7 @@ module.exports = {
         "./Mfe1Module": "./src/app/app.module.ts",
       },
       remotes: {
-        shell: "http://localhost:4200/remoteEntry.js",
+        shell: `${process.env.SHELL_URL}/remoteEntry.js`,
       },
       shared: {
         "@ngrx/store": {

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AuthService } from 'shell/AuthService';
-import { selectIsLogin } from 'shell/selectIsLogin';
-import { updateIsLogin } from 'shell/updateIsLogin';
+import { login } from 'shell/login';
+import { selectAuthState } from 'shell/selectAuthState';
 
 @Component({
   selector: 'app-mfe1-com1',
@@ -10,13 +9,12 @@ import { updateIsLogin } from 'shell/updateIsLogin';
   styleUrl: './mfe1-com1.component.scss',
 })
 export class Mfe1Com1Component {
-  vm$ = this.store.select(selectIsLogin);
-  constructor(private authService: AuthService, private store: Store) {
-    this.authService.isLogin$.subscribe((v) => console.log('@@@mfe', v));
-  }
+  vm$ = this.store.select(selectAuthState);
+  constructor(private store: Store) {}
 
-  changeLogin(isLogin: boolean | null) {
-    console.log(isLogin);
-    this.store.dispatch(updateIsLogin({ isLogin: !isLogin }));
+  loginMfe() {
+    const userName = 'anhtruonglavm2@gmail.com';
+    const password = '123456';
+    this.store.dispatch(login({ userName, password }));
   }
 }
