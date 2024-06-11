@@ -32,7 +32,7 @@ module.exports = {
         "./Mfe1Module": "./src/app/app.module.ts",
       },
       remotes: {
-        SHELL: `http://localhost:4200/remoteEntry.js`,
+        SHELL: `${process.env.SHELL_URL}/remoteEntry.js`,
       },
       shared: {
         "@ngrx/store": {
