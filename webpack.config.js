@@ -2,6 +2,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const packageJson = require("./package.json");
 const dependencies = packageJson.dependencies;
 require("dotenv").config({ path: "./.env" });
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   output: {
@@ -22,15 +23,16 @@ module.exports = {
     alias: {},
   },
   plugins: [
+    new Dotenv(),
     new ModuleFederationPlugin({
-      name: "mfe1",
+      name: "MFE1",
       filename: "remoteEntry.js",
       library: { type: "module" },
       exposes: {
         "./Mfe1Module": "./src/app/app.module.ts",
       },
       remotes: {
-        shell: `${process.env.SHELL_URL}/remoteEntry.js`,
+        SHELL: `${process.env.SHELL_URL}/remoteEntry.js`,
       },
       shared: {
         "@ngrx/store": {

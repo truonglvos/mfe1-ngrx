@@ -1,4 +1,4 @@
-declare module 'shell/AuthService' {
+declare module 'SHELL/AuthService' {
   export declare class AuthService {
     isLogin: BehaviorSubject<boolean>;
     isLogin$: import('rxjs').Observable<boolean>;
@@ -22,7 +22,7 @@ interface AuthState {
   user?: User;
 }
 
-declare module 'shell/selectIsLogin' {
+declare module 'SHELL/selectIsLogin' {
   export declare const selectIsLogin: import('@ngrx/store').MemoizedSelector<
     object,
     boolean,
@@ -30,7 +30,7 @@ declare module 'shell/selectIsLogin' {
   >;
 }
 
-declare module 'shell/updateIsLogin' {
+declare module 'SHELL/updateIsLogin' {
   export declare const updateIsLogin: import('@ngrx/store').ActionCreator<
     '[Update login] update is login',
     (props: { isLogin: boolean }) => {
@@ -39,7 +39,7 @@ declare module 'shell/updateIsLogin' {
   >;
 }
 
-declare module 'shell/updateIsLogin' {
+declare module 'SHELL/updateIsLogin' {
   export declare const updateIsLogin: import('@ngrx/store').ActionCreator<
     '[Update login] update is login',
     (props: { isLogin: boolean }) => {
@@ -48,7 +48,7 @@ declare module 'shell/updateIsLogin' {
   >;
 }
 
-declare module 'shell/login' {
+declare module 'SHELL/login' {
   export declare const login: import('@ngrx/store').ActionCreator<
     '[Update login] login',
     (props: { userName: string; password: string }) => {
@@ -58,10 +58,34 @@ declare module 'shell/login' {
   >;
 }
 
-declare module 'shell/selectAuthState' {
+declare module 'SHELL/selectAuthState' {
   export declare const selectAuthState: import('@ngrx/store').MemoizedSelector<
     object,
     AuthState,
     (s1: AuthState) => AuthState
   >;
+}
+
+// image
+declare module 'SHELL/imageModule' {
+  export declare class ImageModule {
+    static config(config: {
+      domain: string;
+    }): import('@angular/core').ModuleWithProviders<ImageModule>;
+  }
+}
+
+declare module 'SHELL/imageComponent' {
+  declare class ImageComponent {
+    private imageService;
+    src: string;
+    alt: string;
+    width: string;
+    height: string;
+    class: string;
+    style: string;
+    processedSrc: string;
+    constructor(imageService: ImageService);
+    ngOnInit(): void;
+  }
 }

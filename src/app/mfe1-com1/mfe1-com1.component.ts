@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { login } from 'shell/login';
-import { selectAuthState } from 'shell/selectAuthState';
+import { login } from 'SHELL/login';
+import { selectAuthState } from 'SHELL/selectAuthState';
 
 @Component({
   selector: 'app-mfe1-com1',

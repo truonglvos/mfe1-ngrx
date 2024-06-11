@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectIsLogin } from 'shell/selectIsLogin';
+import { selectIsLogin } from 'SHELL/selectIsLogin';
 
 @Component({
   selector: 'app-root',
