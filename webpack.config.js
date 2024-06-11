@@ -25,14 +25,14 @@ module.exports = {
   plugins: [
     new Dotenv(),
     new ModuleFederationPlugin({
-      name: "MFE1",
+      name: "mfe1",
       filename: "remoteEntry.js",
       library: { type: "module" },
       exposes: {
         "./Mfe1Module": "./src/app/app.module.ts",
       },
       remotes: {
-        SHELL: `${process.env.SHELL_URL}/remoteEntry.js`,
+        SHELL: `http://localhost:4200/remoteEntry.js`,
       },
       shared: {
         "@ngrx/store": {
